@@ -11,7 +11,7 @@ import SwiftUI
 @available(iOS 13.0, *)
 public struct CardView<Content:View>:View {
     
-    public init(radius: Int = 12, shadowColor: Color = Color.black.opacity(0.3),shadowRadius: Int = 4,backgroundColor: Color = .white, shouldExpand: Bool = true, padding: CGFloat = 16.0, content: Content) {
+    public init(radius: Int = 12, shadowColor: Color = Color.black.opacity(0.3),shadowRadius: Int = 4,backgroundColor: Color = .white, shouldExpand: Bool = true, padding: CGFloat = 16.0, @ViewBuilder content: @escaping () -> Content) {
         
         self.radius = radius
         self.shadowColor = shadowColor
@@ -30,13 +30,15 @@ public struct CardView<Content:View>:View {
     public var shouldExpand = true
     public var padding = 16.0
     
-    @ViewBuilder public var content:Content
+    let content: () -> Content
+    
+//    @ViewBuilder public var content:Content
     
     public var body: some View {
         ZStack {
             if shouldExpand {
                 VStack {
-                    content
+                    content()
                 }
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .frame(minHeight: 0, maxHeight:  .infinity)
@@ -46,7 +48,7 @@ public struct CardView<Content:View>:View {
                 .shadow(color: shadowColor, radius: CGFloat(shadowRadius), x: 0, y: 0)
             } else {
                 VStack {
-                    content
+                    content()
                 }
                 .padding()
                 .background(backgroundColor)
