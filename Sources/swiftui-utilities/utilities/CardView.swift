@@ -10,6 +10,18 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 public struct CardView<Content:View>:View {
+    
+    public init(radius: Int = 12, shadowColor: Color = Color.black.opacity(0.3),shadowRadius: Int = 4,backgroundColor: Color = .white, shouldExpand: Bool = true, padding: CGFloat = 16.0, content: Content) {
+        
+        self.radius = radius
+        self.shadowColor = shadowColor
+        self.shadowRadius = shadowRadius
+        self.backgroundColor = backgroundColor
+        self.shouldExpand = shouldExpand
+        self.padding = padding
+        self.content = content
+    }
+    
     var radius:Int = 12
     var shadowColor = Color.black.opacity(0.3)
     var shadowRadius = 4
