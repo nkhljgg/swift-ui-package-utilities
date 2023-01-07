@@ -22,15 +22,15 @@ public struct CardView<Content:View>:View {
         self.content = content
     }
     
-    var radius:Int = 12
-    var shadowColor = Color.black.opacity(0.3)
-    var shadowRadius = 4
-    var backgroundColor = Color.white
+    public var radius:Int = 12
+    public var shadowColor = Color.black.opacity(0.3)
+    public var shadowRadius = 4
+    public var backgroundColor = Color.white
 
-    var shouldExpand = true
-    var padding = 16.0
+    public var shouldExpand = true
+    public var padding = 16.0
     
-    @ViewBuilder var content:Content
+    @ViewBuilder public var content:Content
     
     public var body: some View {
         ZStack {
