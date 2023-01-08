@@ -13,7 +13,7 @@ public struct APIPayloadResponse<T:Codable>: Codable{
     let success:Bool
     let data:T?
     
-    public init(code: Int, message: APIMessage, success: Bool, data: T?) {
+    public init(code: Int, message: APIMessage, success: Bool, data: T? = .none) {
         self.code = code
         self.message = message
         self.success = success
