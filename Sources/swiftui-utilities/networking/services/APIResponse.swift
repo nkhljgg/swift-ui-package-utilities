@@ -13,6 +13,13 @@ public struct APIPayloadResponse<T:Codable>: Codable{
     let success:Bool
     let data:T?
     
+    public init(code: Int, message: APIMessage, success: Bool, data: Codable?) {
+        self.code = code
+        self.message = message
+        self.success = success
+        self.data = data as? T
+    }
+    
     func getMessage() -> String {
         switch message {
         case .object(let wrapper):
