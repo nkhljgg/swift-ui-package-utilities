@@ -13,11 +13,11 @@ public struct APIPayloadResponse<T:Codable>: Codable{
     let success:Bool
     let data:T?
     
-    public init(code: Int, message: APIMessage, success: Bool, data: Codable?) {
+    public init(code: Int, message: APIMessage, success: Bool, data: T?) {
         self.code = code
         self.message = message
         self.success = success
-        self.data = data as? T
+        self.data = data
     }
     
     func getMessage() -> String {
@@ -68,4 +68,10 @@ public struct APIResponse : Codable{
     let code:Int
     let message:String
     let success:Bool
+    
+    public init(code: Int, message: String, success: Bool) {
+        self.code = code
+        self.message = message
+        self.success = success
+    }
 }
