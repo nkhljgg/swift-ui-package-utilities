@@ -27,6 +27,7 @@ public class TestViewModel: ObservableObject {
             .sink { error in
                 print(error)
             } receiveValue: { [weak self] data in
+                
                 guard let data = data.data else { return }
                 
                 self?.testData = data

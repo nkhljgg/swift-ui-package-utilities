@@ -56,7 +56,7 @@ public enum APIMessage: Codable {
 
 public struct MessageErrorWrapper: Codable {
     let errors:[MessageError]
-    struct MessageError: Codable {
+    public struct MessageError: Codable {
         var value: String
         var msg: String
         var param: String
