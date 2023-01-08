@@ -28,7 +28,7 @@ public class TestViewModel: ObservableObject {
                 print(error)
             } receiveValue: { [weak self] data in
                 
-                guard let data = data.data else { return }
+                let data = data.data 
                 
                 self?.testData = data
                 
