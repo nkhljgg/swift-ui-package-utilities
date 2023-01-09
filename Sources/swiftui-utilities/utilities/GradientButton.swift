@@ -21,7 +21,7 @@ public struct GradientButton: View {
     
     var cornerRadius: CGFloat
     
-    public init(title: String, width: Double = 300.0, font: Font = .poppinsSubHeadlineSemiBold, height: Double = 45.0, backgroundGradientColors: [Color] = [.white], backgroundGradientDirection: GradientDirection = .leftToRight, cornerRadius: CGFloat = 32, action: @escaping () -> Void) {
+    public init(title: String, width: Double = 300.0, font: Font = .poppinsSubHeadlineSemiBold, height: Double = 45.0, backgroundGradientColors: [Color] = [.gray], backgroundGradientDirection: GradientDirection = .leftToRight, cornerRadius: CGFloat = 10, action: @escaping () -> Void) {
         self.title = title
         self.width = width
         self.font = font
@@ -40,7 +40,7 @@ public struct GradientButton: View {
         } label: {
             VStack {
                     Text(NSLocalizedString(title, comment: ""))
-                        .font(.poppinsTitle1)
+                        .font(font)
                         .foregroundColor(Color.white)
                         .lineLimit(nil)
             }
