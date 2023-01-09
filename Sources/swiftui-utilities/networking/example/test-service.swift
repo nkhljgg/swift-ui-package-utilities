@@ -13,12 +13,12 @@ import Combine
  Example: ProfileDetailsProtocol
  
  */
-@available(iOS 13.0, *)
+
 protocol TestProtocol {
     func getTestData() -> AnyPublisher<APIPayloadResponse<[TestData]>, NetworkError>
 }
 
-@available(iOS 13.0, *)
+
 public class TestService: TestProtocol {
     
     private let client: APIClientProtocol

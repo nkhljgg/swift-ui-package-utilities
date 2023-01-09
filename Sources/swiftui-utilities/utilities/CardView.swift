@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-@available(iOS 13.0, *)
 public struct CardView<Content:View>:View {
     
     public init(radius: Int = 12, shadowColor: Color = Color.black.opacity(0.3),shadowRadius: Int = 4,backgroundColor: Color = .white, shouldExpand: Bool = true, padding: CGFloat = 16.0, @ViewBuilder content: @escaping () -> Content) {

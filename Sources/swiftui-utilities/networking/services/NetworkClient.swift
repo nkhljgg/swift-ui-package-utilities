@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-@available(iOS 13.0, *)
+
 public class NetworkClient : NetworkClientProtocol{
     
     public init(requestTimeOut: Float = 30) {

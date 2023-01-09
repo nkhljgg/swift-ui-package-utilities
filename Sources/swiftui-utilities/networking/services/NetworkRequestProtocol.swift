@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 // MARK: - Protocol containing a generic function to handle requests
-@available(iOS 13.0, *)
+
 public protocol NetworkClientProtocol{
     
     /**

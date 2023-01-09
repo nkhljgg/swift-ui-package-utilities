@@ -10,13 +10,13 @@ import Combine
 
 public typealias Headers = [String: String]
 
-@available(iOS 13.0, *)
+
 public protocol APIClientProtocol{
     init(network:NetworkClientProtocol)
     func performRequest<T:Codable>(responseType: T.Type, request:APIRequest) -> AnyPublisher<T, NetworkError>
 }
 
-@available(iOS 13.0, *)
+
 public class APIClient: APIClientProtocol {
     
     var timeout: Int { return 20 }
