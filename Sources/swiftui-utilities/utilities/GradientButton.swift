@@ -12,14 +12,14 @@ public struct GradientButton: View {
     
     var title: String
     var width: Double
-    var fontSize: CGFloat
+    var font: Font
     var height: Double
     var action: () -> Void
     
-    public init(title: String, width: Double = 300.0, fontSize: CGFloat = 15, height: Double = 45.0, action: @escaping () -> Void) {
+    public init(title: String, width: Double = 300.0, font: Font = .poppinsSubHeadlineSemiBold, height: Double = 45.0, action: @escaping () -> Void) {
         self.title = title
         self.width = width
-        self.fontSize = fontSize
+        self.font = font
         self.height = height
         self.action = action
     }
@@ -33,7 +33,6 @@ public struct GradientButton: View {
                         .font(.poppinsTitle1)
                         .foregroundColor(Color.white)
                         .lineLimit(nil)
-                        .font(.system(size: fontSize))
             }
             .padding()
             .frame(minWidth:width)
