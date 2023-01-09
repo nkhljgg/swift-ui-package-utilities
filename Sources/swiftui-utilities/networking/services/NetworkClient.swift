@@ -25,7 +25,7 @@ public class NetworkClient : NetworkClientProtocol{
             guard let url = URL(string: req.url) else {
                 // Return a fail publisher if the url is invalid
                 return AnyPublisher(
-                    Fail<T, NetworkError>(error: NetworkError.badURL("\(req.url)"))
+                    Fail<T, NetworkError>(error: NetworkError.badURL(url: "\(req.url)"))
                 )
             }
             // We use the dataTaskPublisher from the URLSession which gives us a publisher to play around with.
