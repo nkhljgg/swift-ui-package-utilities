@@ -8,24 +8,24 @@
 import Foundation
 import SwiftUI
 
+public enum GradientDirection {
+    case topToBottom
+    case leftToRight
+    case diagonal(direction: DiagonalDirections)
+}
+
+public enum DiagonalDirections {
+    case topLeftToBottomRight
+    case topRightToBottomLeft
+    case bottomLeftToTopRight
+    case bottomRightToTopLeft
+}
+
 //Provides a linear gradient in any specified direction
 public struct GradientView:View {
     
     var colors: [Color]
     var direction: GradientDirection
-    
-    public enum GradientDirection {
-        case topToBottom
-        case leftToRight
-        case diagonal(direction: DiagonalDirections)
-    }
-    
-    public enum DiagonalDirections {
-        case topLeftToBottomRight
-        case topRightToBottomLeft
-        case bottomLeftToTopRight
-        case bottomRightToTopLeft
-    }
     
     ///Enter colors in sequence.
     public init(colors: [Color], direction: GradientDirection) {

@@ -16,12 +16,22 @@ public struct GradientButton: View {
     var height: Double
     var action: () -> Void
     
-    public init(title: String, width: Double = 300.0, font: Font = .poppinsSubHeadlineSemiBold, height: Double = 45.0, action: @escaping () -> Void) {
+    var gradientColors: [Color]
+    var gradientDirection: GradientDirection
+    
+    var cornerRadius: CGFloat
+    
+    public init(title: String, width: Double = 300.0, font: Font = .poppinsSubHeadlineSemiBold, height: Double = 45.0, backgroundGradientColors: [Color] = [.white], backgroundGradientDirection: GradientDirection = .leftToRight, cornerRadius: CGFloat = 32, action: @escaping () -> Void) {
         self.title = title
         self.width = width
         self.font = font
         self.height = height
         self.action = action
+        
+        self.gradientColors = backgroundGradientColors
+        self.gradientDirection = backgroundGradientDirection
+        
+        self.cornerRadius = cornerRadius
     }
     
     public var body: some View {
@@ -39,8 +49,8 @@ public struct GradientButton: View {
             .frame(height:height)
         }
         .background(
-            GradientView(colors: [.white, .black], direction: .topToBottom)
-        ).cornerRadius(32)
+            GradientView(colors: gradientColors, direction: gradientDirection)
+        ).cornerRadius(cornerRadius)
             .padding()
     }
 }
