@@ -10,13 +10,13 @@ import SwiftUI
 
 public struct GradientButton: View {
     
-    var title:String
-    var width:Double = 300.0
-    var fontSize:CGFloat = 15
-    var height:Double = 44.0
-    var action:() -> Void
+    var title: String
+    var width: Double
+    var fontSize: CGFloat
+    var height: Double
+    var action: () -> Void
     
-    public init(title: String, width: Double, fontSize: CGFloat, height: Double, action: @escaping () -> Void) {
+    public init(title: String, width: Double = 300.0, fontSize: CGFloat = 15, height: Double = 45.0, action: @escaping () -> Void) {
         self.title = title
         self.width = width
         self.fontSize = fontSize

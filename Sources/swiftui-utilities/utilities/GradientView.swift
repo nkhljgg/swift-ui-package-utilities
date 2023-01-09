@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+//Provides a linear gradient in any specified direction
 public struct GradientView:View {
     
     var colors: [Color]
