@@ -10,19 +10,37 @@ import SwiftUI
 
 public struct GradientView:View {
     
-    var firstColor: UIColor
-    var secondColor: UIColor
+    var colors: [Color]
+    var direction: GradientDirection
     
-    public init(firstColor: UIColor, secondColor: UIColor) {
-        self.firstColor = firstColor
-        self.secondColor = secondColor
+    public enum GradientDirection {
+        case topToBottom
+        case leftToRight
+    }
+    
+    ///Enter colors in sequence.
+    public init(colors: [Color], direction: GradientDirection) {
+        self.colors = colors
+        self.direction = direction
+    }
+    
+    func calculateDirection(_ direction: GradientDirection) -> [UnitPoint] {
+        var coordinates = [UnitPoint]()
+        
+        switch direction {
+        case .topToBottom:
+            coordinates.append(.top)
+            coordinates.append(.bottom)
+        case .leftToRight:
+            coordinates.append(.leading)
+            coordinates.append(.trailing)
+        }
+        return coordinates
     }
     
     public var body: some View {
-        LinearGradient(gradient:
-                        Gradient(colors: [Color(firstColor),
-                                          Color(secondColor)]),
-                       startPoint: .leading,
-                       endPoint: .trailing)
+        
+        LinearGradient(colors: colors, startPoint: calculateDirection(direction)[0], endPoint: calculateDirection(direction)[1])
+        
     }
 }

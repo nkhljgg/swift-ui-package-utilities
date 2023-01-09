@@ -40,7 +40,7 @@ public struct GradientButton: View {
             .frame(height:height)
         }
         .background(
-            GradientView(firstColor: .black, secondColor: .white)
+            GradientView(colors: [.white, .black], direction: .topToBottom)
         ).cornerRadius(32)
             .padding()
     }
