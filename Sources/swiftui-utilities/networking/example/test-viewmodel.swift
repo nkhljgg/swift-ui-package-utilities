@@ -28,9 +28,7 @@ public class TestViewModel: ObservableObject {
                 print(error)
             } receiveValue: { [weak self] data in
                 
-                let data = data.data 
-                
-                self?.testData = data
+                self?.testData = data.data
                 
             }.store(in: &cancellables)
     }

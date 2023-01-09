@@ -71,6 +71,7 @@ public enum NetworkError: Error, Equatable {
     case noResponse(_ error: String)
     case unableToParseData(_ error: String)
     case unknown(code: Int, error: String)
+    
 }
 
 public extension Encodable {

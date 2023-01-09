@@ -55,12 +55,25 @@ public enum APIMessage: Codable {
 }
 
 public struct MessageErrorWrapper: Codable {
+    
     let errors:[MessageError]
+    
+    public init(errors: [MessageError]) {
+        self.errors = errors
+    }
+    
     public struct MessageError: Codable {
         var value: String
         var msg: String
         var param: String
         var location: String
+        
+        public init(value: String, msg: String, param: String, location: String) {
+            self.value = value
+            self.msg = msg
+            self.param = param
+            self.location = location
+        }
     }
 }
 
