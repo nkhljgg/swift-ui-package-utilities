@@ -20,7 +20,7 @@ public struct APIPayloadResponse<T:Codable>: Codable{
         self.data = data
     }
     
-    func getMessage() -> String {
+    public func getMessage() -> String {
         switch message {
         case .object(let wrapper):
             return wrapper.errors.map { $0.msg }.joined(separator:", ")
