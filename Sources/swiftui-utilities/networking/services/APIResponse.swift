@@ -8,10 +8,10 @@
 import Foundation
 
 public struct APIPayloadResponse<T:Codable>: Codable{
-    let code:Int
-    let message:APIMessage
-    let success:Bool
-    let data:T
+    public let code:Int
+    public let message:APIMessage
+    public let success:Bool
+    public let data:T
     
     public init(code: Int, message: APIMessage, success: Bool, data: T) {
         self.code = code

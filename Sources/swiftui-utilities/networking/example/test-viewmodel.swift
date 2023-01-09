@@ -26,8 +26,9 @@ public class TestViewModel: ObservableObject {
         service.getTestData().receive(on: DispatchQueue.main)
             .sink { error in
                 print(error)
-            } receiveValue: { [weak self] data in
                 
+            } receiveValue: { [weak self] data in
+                    
                 self?.testData = data.data
                 
             }.store(in: &cancellables)
