@@ -10,6 +10,14 @@ import SwiftUI
 
 public struct CardView<Content:View>:View {
     
+    var radius:Int = 12
+    var shadowColor = Color.black.opacity(0.3)
+    var shadowRadius = 4
+    var backgroundColor = Color.white
+    var shouldExpand = true
+    var padding = 16.0
+    let content: () -> Content
+    
     public init(radius: Int = 12, shadowColor: Color = Color.black.opacity(0.3),shadowRadius: Int = 4,backgroundColor: Color = .white, shouldExpand: Bool = true, padding: CGFloat = 16.0, @ViewBuilder content: @escaping () -> Content) {
         
         self.radius = radius
@@ -19,15 +27,8 @@ public struct CardView<Content:View>:View {
         self.shouldExpand = shouldExpand
         self.padding = padding
         self.content = content
+        
     }
-    
-    var radius:Int = 12
-    var shadowColor = Color.black.opacity(0.3)
-    var shadowRadius = 4
-    var backgroundColor = Color.white
-    var shouldExpand = true
-    var padding = 16.0
-    let content: () -> Content
     
     public var body: some View {
         ZStack {
