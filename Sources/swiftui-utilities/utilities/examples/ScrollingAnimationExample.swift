@@ -18,6 +18,8 @@ private struct ScrollingAnimationView: View {
     ]
     
     var body: some View {
+        
+
         VStack{
             HStack{
                 Text("Scroll View")
