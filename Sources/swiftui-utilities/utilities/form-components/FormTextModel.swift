@@ -22,15 +22,15 @@ public class FormTextModel: ObservableObject {
     
     var manager = AppearanceManager()
     
-    @Published var text = ""
-    @Published var errorMessage = ""
-    @Published var isValid = true
-    @Published var observedValidity = true
-    @Published var color = Color.clear
+    @Published public var text = ""
+    @Published public var errorMessage = ""
+    @Published public var isValid = true
+    @Published public var observedValidity = true
+    @Published public var color = Color.clear
     
     @Published var rules:[FormRules]
-    var name:String
-    var cancellables = Set<AnyCancellable>()
+    public var name:String
+    public var cancellables = Set<AnyCancellable>()
     
     public init(name:String = "", rules:[FormRules] = []) {
         self.name = name
