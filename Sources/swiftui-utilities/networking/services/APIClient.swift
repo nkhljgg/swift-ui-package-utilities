@@ -20,7 +20,6 @@ public protocol APIClientProtocol{
 public class APIClient: APIClientProtocol {
     
     var timeout: Int { return 20 }
-    var baseUrl: String = ""
     
     private var client:NetworkClientProtocol
     private var token:String
@@ -36,7 +35,7 @@ public class APIClient: APIClientProtocol {
         headers["Content-Type"] = "application/json"
         headers["oauth-token"] = "\(token)"
         
-        let url = "\(baseUrl)/\(request.endpoint)"
+        let url = "\(request.url)"
         print("URL \(url)")
         let request = NetworkRequest(url: url, headers: headers, reqBody: request.body, httpMethod: request.method)
         return self.client.request(responseType, request)

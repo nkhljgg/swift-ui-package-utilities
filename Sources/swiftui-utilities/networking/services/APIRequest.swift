@@ -9,13 +9,13 @@ import Foundation
 
 public struct APIRequest {
     
-    public init(method: HTTPMethod, endpoint: String, body: Encodable?) {
+    public init(method: HTTPMethod, url: String, body: Encodable?) {
         self.method = method
-        self.endpoint = endpoint
+        self.url = url
         self.body = body
     }
     
     let method: HTTPMethod
-    let endpoint: String
+    let url: String
     let body:Encodable?
 }

@@ -28,7 +28,7 @@ public class TestService: TestProtocol {
     }
     
     func getTestData() -> AnyPublisher<APIPayloadResponse<[TestData]>, NetworkError> {
-        let apiRequest = APIRequest(method: .GET, endpoint: "api/test", body: nil)
+        let apiRequest = APIRequest(method: .GET, url: "https://myhostingservice.api/test", body: nil)
         return self.client.performRequest(responseType: APIPayloadResponse<[TestData]>.self, request: apiRequest)
     }
 }
