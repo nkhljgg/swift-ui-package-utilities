@@ -18,6 +18,15 @@ public struct InfinityLoaderView: View {
     @State var strokeEnd: CGFloat = 0
     @State var additionalLength: CGFloat = 0
 
+    public init(animationDuration: TimeInterval, strokeWidth: CGFloat, animationCap: CGFloat, strokeStart: CGFloat, strokeEnd: CGFloat, additionalLength: CGFloat) {
+        self.animationDuration = animationDuration
+        self.strokeWidth = strokeWidth
+        self.animationCap = animationCap
+        self.strokeStart = strokeStart
+        self.strokeEnd = strokeEnd
+        self.additionalLength = additionalLength
+    }
+    
     public var body: some View {
         ZStack {
             Color.black.opacity(0.2).ignoresSafeArea()
