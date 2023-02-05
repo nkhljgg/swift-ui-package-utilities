@@ -18,7 +18,7 @@ public struct InfinityLoaderView: View {
     @State var strokeEnd: CGFloat
     @State var additionalLength: CGFloat
 
-    public init(animationDuration: TimeInterval = 0.2, strokeWidth: CGFloat = 20, animationCap: CGFloat = 1.205, strokeStart: CGFloat = 0, strokeEnd: CGFloat = 0, additionalLength: CGFloat = 0) {
+    public init(animationDuration: TimeInterval = 0.2, strokeWidth: CGFloat = 7.5, animationCap: CGFloat = 1.205, strokeStart: CGFloat = 0, strokeEnd: CGFloat = 0, additionalLength: CGFloat = 0) {
         self.animationDuration = animationDuration
         self.strokeWidth = strokeWidth
         self.animationCap = animationCap
