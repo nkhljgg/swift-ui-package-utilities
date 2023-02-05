@@ -10,15 +10,15 @@ import SwiftUI
 
 public struct InfinityLoaderView: View {
 
-    public var animationDuration: TimeInterval = 0.2
-    public var strokeWidth: CGFloat = 20
-    public var animationCap: CGFloat = 1.205
+    public var animationDuration: TimeInterval
+    public var strokeWidth: CGFloat
+    public var animationCap: CGFloat
     
-    @State var strokeStart: CGFloat = 0
-    @State var strokeEnd: CGFloat = 0
-    @State var additionalLength: CGFloat = 0
+    @State var strokeStart: CGFloat
+    @State var strokeEnd: CGFloat
+    @State var additionalLength: CGFloat
 
-    public init(animationDuration: TimeInterval, strokeWidth: CGFloat, animationCap: CGFloat, strokeStart: CGFloat, strokeEnd: CGFloat, additionalLength: CGFloat) {
+    public init(animationDuration: TimeInterval = 0.2, strokeWidth: CGFloat = 20, animationCap: CGFloat = 1.205, strokeStart: CGFloat = 0, strokeEnd: CGFloat = 0, additionalLength: CGFloat = 0) {
         self.animationDuration = animationDuration
         self.strokeWidth = strokeWidth
         self.animationCap = animationCap
