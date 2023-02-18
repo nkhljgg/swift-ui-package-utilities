@@ -238,8 +238,7 @@ extension ExpandableView {
     }
 }
 
-//HEADERVIEW
-
+//MARK: ExpandableHeaderView
 struct ExpandableHeaderView<V: View>: View {
     
     let headerView: V
@@ -269,7 +268,7 @@ extension ExpandableHeaderView {
     }
 }
 
-//CHILDHEIGHTREADER
+//MARK: Child Height Reader
 
 
 /* MARK: - Animation Modifier */
