@@ -8,34 +8,56 @@
 import Foundation
 import Network
 
+public class NetworkMonitor: ObservableObject {
+    
+    private let networkMonitor = NWPathMonitor()
+    private let workerQueue = DispatchQueue(label: "Monitor")
+    public var connected = false
+
+    public init() {
+        networkMonitor.pathUpdateHandler = { path in
+            self.connected = path.status == .satisfied
+            Task {
+                await MainActor.run {
+                    self.objectWillChange.send()
+                }
+            }
+        }
+        networkMonitor.start(queue: workerQueue)
+    }
+}
+
 /*
  Usage:
- *In your view*
  
- @StateObject var network = Network()
+ *In a single view*
+ 
+ @StateObject var network = NetworkMonitor()
  
  *To check*
  if network.connected
  
- */
+ --**OR**--
+ 
+ *Inject in the main app
+ 
+ @main
+ struct MyApp: App {
+     @StateObject var networkMonitor = NetworkMonitor()
 
-public class Network: ObservableObject {
-    public let monitor = NWPathMonitor()
-    public let queue = DispatchQueue(label: "Monitor")
-    @Published public var connected: Bool
-    
-    public init(connected: Bool = false) {
-        self.connected = connected
-    }
-    
-    func checkConnection() {
-        monitor.pathUpdateHandler = { path in
-            if path.status == .satisfied {
-                    self.connected = true
-            } else {
-                    self.connected = false
-            }
-        }
-        monitor.start(queue: queue)
-    }
-}
+     var body: some Scene {
+         WindowGroup {
+             ContentView()
+                 .environmentObject(networkMonitor)
+         }
+     }
+ }
+ 
+ *And usage*
+ 
+ struct ContentView: View {
+     @EnvironmentObject var networkMonitor: NetworkMonitor
+     ...
+ }
+ 
+ */
