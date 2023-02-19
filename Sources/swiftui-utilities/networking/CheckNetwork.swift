@@ -22,7 +22,7 @@ import Network
 public class Network: ObservableObject {
     public let monitor = NWPathMonitor()
     public let queue = DispatchQueue(label: "Monitor")
-    @Published private(set) var connected: Bool
+    @Published public var connected: Bool
     
     public init(connected: Bool = false) {
         self.connected = connected
